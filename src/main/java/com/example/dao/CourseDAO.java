@@ -42,4 +42,25 @@ public class CourseDAO extends AbstractDAO<Course>{
         return persist(course).getId();
 
     }
+
+    public int changeCourseName(Course course, String newName) {
+        course.setCourseName(newName);
+        return persist(course).getId();
+    }
+
+    public void deleteCourse(Course course) {
+        currentSession().delete(course);
+
+    }
+
+//    public int removeStudent(Student student, Course course) {
+//
+//        System.out.println("in coursedao");
+//        Set<Student> students = course.getStudents();
+//        students.remove(student);
+//        course.setStudents(students);
+//        return persist(course).getId();
+//
+//
+//    }
 }

@@ -64,8 +64,8 @@ public class CourseResources {
     {
         int studentId = requests.getStudentId();
         int courseId = requests.getCourseId();
-        System.out.println(studentId);
-        System.out.println(courseId);
+//        System.out.println(studentId);
+//        System.out.println(courseId);
         Optional<Student> studentOptional = studentDAO.findById(studentId);
 //        System.out.println(studentOptional);
         Optional<Course> courseOptional = courseDAO.findById((courseId));
@@ -85,6 +85,7 @@ public class CourseResources {
     public Set<Student> showStudents(@PathParam("id") int id)
     {
         Optional<Course> courseOptional= courseDAO.findById(id);
+//        System.out.println(courseOptional);
         if(courseOptional.isPresent())
         {
             Course course = courseOptional.get();
@@ -94,6 +95,74 @@ public class CourseResources {
         throw new WebApplicationException("Course not found", Response.Status.NOT_FOUND);
 
     }
+
+//    @Path("/updatecourse")
+//    @PUT
+//    @UnitOfWork
+//    public int removeStudentFromCourse(Requests requests)
+//    {
+//        int courseId = requests.getCourseId();
+//        int studentId = requests.getStudentId();
+//        Optional<Course> courseOptional= courseDAO.findById(courseId);
+//        Optional<Student> studentOptional = studentDAO.findById(studentId);
+//        if(studentOptional.isPresent() && courseOptional.isPresent())
+//        {
+//            Course course = courseOptional.get();
+//            Student student = studentOptional.get();
+//            return courseDAO.removeStudent(student,course);
+//        }
+//
+//        throw new WebApplicationException("Course/Student not found", Response.Status.NOT_FOUND);
+//
+//
+//    }
+
+
+
+//    @Path("/changecoursename")
+    @PUT
+    @UnitOfWork
+    public int changeNameOfCourse(ChangeName changeName)
+    {
+        int courseId = changeName.getCourseId();
+        String newName = changeName.getCourseName();
+//        System.out.println(courseId);
+        System.out.println(newName);
+        Optional<Course> courseOptional = courseDAO.findById(courseId);
+        if(courseOptional.isPresent())
+        {
+            Course course = courseOptional.get();
+            return courseDAO.changeCourseName(course,newName);
+        }
+
+        throw new WebApplicationException("Course not found", Response.Status.NOT_FOUND);
+
+    }
+
+
+    @DELETE
+    @UnitOfWork
+    public void deleteCourseFromCatalog(Requests request)
+    {
+
+        int courseId = request.getCourseId();
+//        System.out.println(courseId);
+        Optional<Course> courseOptional = courseDAO.findById(courseId);
+//        System.out.println(courseOptional);
+        if(courseOptional.isPresent())
+        {
+
+            Course course = courseOptional.get();
+            courseDAO.deleteCourse(course);
+            return;
+        }
+
+        throw new WebApplicationException("Course not found", Response.Status.NOT_FOUND);
+
+
+    }
+
+
 
     }
 
