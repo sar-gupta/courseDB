@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.dropwizard:dropwizard-views-mustache:1.1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.dropwizard/dropwizard-views-mustache/1.1.0/f7e3a3e0ef879924a717af76192b9f337b4d7315/dropwizard-views-mustache-1.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.dropwizard/dropwizard-views-mustache/1.1.0/2c25e63d323dc054c95f0697daa40e483ed0b64a/dropwizard-views-mustache-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
