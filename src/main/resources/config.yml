@@ -5,10 +5,10 @@ database:
   driverClass: com.mysql.jdbc.Driver
 
   # the username
-  user: root
+  user: (your mysql username)
 
   # the password
-  password: sarthak1997
+  password: (your mysql password)
 
   # the JDBC URL
   url: jdbc:mysql://localhost/courses
